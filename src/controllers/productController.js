@@ -3,7 +3,7 @@ import productService from "../services/productService.js"
 
 export const getProducts = async (req, res) => {
     try {
-        const listProduct = productService.getAll()
+        const listProduct = await productService.getAll()
 
         res.status(200).json(listProduct)
 

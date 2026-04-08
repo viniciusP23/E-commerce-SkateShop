@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>SkateShop</title>
+</head>
+
+<body >
+
+    <h1>produtos</h1>
+
+    <div id="listarProdutos"></div>
+
+
+</body>
+
+<script>
+
+    async function listarProdutos() {
+
+        const response = await fetch("http://localhost:3000/products")
+        const produtos = await response.json()
+
+
+        const lista = document.getElementById("listarProdutos")
+
+        lista.innerHTML = ""
+
+        produtos.forEach(item => {
+
+            const card = document.createElement("div")
+            card.classList.add("card-products")
+
+          
+            const imageDiv = document.createElement("div")
+            const img = document.createElement("img")
+            img.src = `${item.image}`
+            img.style.maxWidth = "100%"
+
+            const divContent = document.createElement("div")
+            divContent.classList.add("content")
+
+            divContent.innerHTML = `
+            
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+            <h2> R$ ${item.price}</h2>
+            <p>${item.category}</p>
+            
+            `
+
+            imageDiv.appendChild(img)
+
+            card.appendChild(imageDiv)
+            card.appendChild(divContent)
+
+            lista.appendChild(card)
+
+        });
+    }
+    listarProdutos()
+
+</script>
+
+</html>
