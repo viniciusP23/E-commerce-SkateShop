@@ -4,15 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="estilo.css">
     <title>SkateShop</title>
 </head>
 
 <body >
 
-    <h1>produtos</h1>
+    <header>
 
+        <h2 class="logo">Skate<span>Shop</span></h2>
+
+        <nav class="search-box">
+            <button class="btn-search"><i class="fa fa-search icon"></i></button>
+
+            <input type="text" placeholder="BUSCAR PRODUTOS">
+        </nav>
+
+        <div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+    <div class="content">
+        
+
+    </div>
+    
+
+    
     <div id="listarProdutos"></div>
+    
 
 
 </body>
@@ -51,12 +78,15 @@
             <p>${item.category}</p>
             
             `
+            const btnBuy = document.createElement("button")
+            btnBuy.innerHTML = "Adicionar ao carrinho"
+            btnBuy.classList.add("btn-buy")
 
             imageDiv.appendChild(img)
 
             card.appendChild(imageDiv)
             card.appendChild(divContent)
-
+            card.appendChild(btnBuy)
             lista.appendChild(card)
 
         });
