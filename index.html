@@ -9,9 +9,9 @@
     <title>SkateShop</title>
 </head>
 
-<body >
+<body>
 
-    <header>
+    <header id="header">
 
         <h2 class="logo">Skate<span>Shop</span></h2>
 
@@ -31,15 +31,52 @@
 
     </header>
 
-    <div class="content">
-        
+    <div class="content-div">
+
+        <aside>
+            <h1>Confira nossas promoção de verão</h1>
+            <a href="#"><button class="btn-see-now">Ver agora</button></a>
+        </aside>
 
     </div>
-    
 
-    
-    <div id="listarProdutos"></div>
-    
+    <div class="carousel">
+        <!-- <button class="prev">‹</button> -->
+
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_9_948_IndependentTrucks.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+                <img src="img/13_6_5_514_VentureTrucks104.webp" alt="">
+            </div>
+        </div>
+
+        <!-- <button class="next">›</button> -->
+    </div>
+
+
+    <!-- <div id="listarProdutos"></div> -->
+
 
 
 </body>
@@ -61,7 +98,7 @@
             const card = document.createElement("div")
             card.classList.add("card-products")
 
-          
+
             const imageDiv = document.createElement("div")
             const img = document.createElement("img")
             img.src = `${item.image}`
@@ -92,6 +129,54 @@
         });
     }
     listarProdutos()
+
+    // navBar
+    const navBar = document.getElementById("header")
+
+    document.addEventListener("scroll", () => {
+        let scrollTop = window.scrollY
+
+        if (scrollTop > 0) {
+            navBar.classList.add("rolar")
+        } else {
+            navBar.classList.remove("rolar")
+        }
+    })
+
+    // Carousel
+
+    const track = document.querySelector(".carousel-track")
+
+
+    track.innerHTML += track.innerHTML
+
+    const items = document.querySelectorAll(".carousel-track img")
+
+    let index = 0
+
+    function update() {
+        const itemWidth = items[0].clientWidth + 20
+        track.style.transform = `translateX(-${index * itemWidth}px)`
+    }
+
+
+    setInterval(() => {
+        index++
+
+
+        if (index >= items.length / 2) {
+            index = 0
+            track.style.transition = "none"
+            update()
+
+
+            track.offsetHeight
+
+            track.style.transition = "transform 0.5s ease"
+        } else {
+            update()
+        }
+    }, 2000)
 
 </script>
 
