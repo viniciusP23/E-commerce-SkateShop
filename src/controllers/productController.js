@@ -7,7 +7,7 @@ export const getProducts = async (req, res) => {
 
         res.status(200).json(listProduct)
 
-    } catch (error) {
+    }catch(error) {
         res.status(500).json({ error: "Erro ao buscar produtos." })
     }
 }
@@ -24,7 +24,7 @@ export const getProductId = async (req, res) => {
 
         res.status(200).json(product)
 
-    } catch (error) {
+    }catch(error) {
         res.status(500).json({ error: "Erro ao buscar produto." })
     }
 }
@@ -43,7 +43,7 @@ export const createProduct = async (req, res) => {
 
         res.status(201).json(newProduct)
 
-    } catch (error) {   
+    }catch(error) {   
         res.status(500).json({ error: "Erro ao criar produto." })
     }
 }
@@ -57,7 +57,8 @@ export const updateProduct = async (req, res) => {
         const updateProduct = await productService.update(id, data)
 
         res.status(200).json(updateProduct)
-    } catch  (error) {
+
+    }catch(error) {
         res.status(500).json({error: "Erro ao atualizar produto."})
     }
 }
@@ -70,7 +71,8 @@ export const deleteProduct = async (req, res) => {
         await productService.delete(id)
 
         res.status(200).json({menssage: "Produto deletado com sucesso"})
-    } catch (error) {
+
+    }catch(error) {
         res.status(500).json({error: "Erro ao deletar produto"})
     }
 }

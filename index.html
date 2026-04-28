@@ -18,7 +18,7 @@
         <nav class="search-box">
             <button class="btn-search"><i class="fa fa-search icon"></i></button>
 
-            <input type="text" placeholder="BUSCAR PRODUTOS">
+            <input id="searchInput" type="text" placeholder="BUSCAR PRODUTOS">
         </nav>
 
         <div>
@@ -156,7 +156,6 @@
         const response = await fetch("http://localhost:3000/products")
         const produtos = await response.json()
 
-
         const lista = document.getElementById("listarProdutos")
 
         lista.innerHTML = ""
@@ -197,6 +196,7 @@
         });
     }
     listarProdutos()
+
 
     // navBar
     const navBar = document.getElementById("header")
